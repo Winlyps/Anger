@@ -14,6 +14,9 @@ class Anger : JavaPlugin() {
 
     override fun onDisable() {
         // Plugin shutdown logic
-        logger.info("Anger plugin has been disabled.")
+        server.worlds.forEach { world ->
+            world.setGameRuleValue("universalAnger", "false")
+            logger.info("Anger plugin has been disabled.")
+        }
     }
 }
